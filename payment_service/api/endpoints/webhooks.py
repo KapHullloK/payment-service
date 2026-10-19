@@ -24,7 +24,11 @@ router = APIRouter()
         "requestBody": {
             "required": True,
             "content": {
-                "application/json": {"schema": BankWebhook.model_json_schema()}
+                "application/json": {
+                    "schema": BankWebhook.model_json_schema(
+                        ref_template="#/components/schemas/{model}"
+                    )
+                }
             },
         }
     },
